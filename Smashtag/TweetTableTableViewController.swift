@@ -36,6 +36,8 @@ class TweetTableTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refresh();
+        self.tableView.estimatedRowHeight = self.tableView.rowHeight;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
