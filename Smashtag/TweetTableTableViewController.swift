@@ -8,22 +8,35 @@
 
 import UIKit
 
-class TweetTableTableViewController: UITableViewController {
+class TweetTableTableViewController: UITableViewController, UITextFieldDelegate
+{
+    // MARK: - Member variables and outlets
+    var searchText:String? = "pinkfloyd"{
+        didSet{
+            if searchText != nil {
+                searchTextField?.text = searchText;
+                self.tweets.removeAll();
+                self.tableView.reloadData();
+                refresh();
+            }
+        }
+    }
 
     var tweets = [[Tweet]]();
+    
+    
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet{
+            searchTextField.delegate = self;
+            searchTextField.text = searchText;
+        }
+    }
+    
+    // MARK: - UITableViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        var request:TwitterRequest = TwitterRequest(search: "Pinkfloyd", count: 100);
-        // NOTE the different types of closure notations used below
-        request.fetchTweets { (newTweets) -> Void in
-            // Because self.tableView.reloadData() needs to be executed on the main thread
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                if newTweets.count > 0 {
-                    self.tweets.insert(newTweets, atIndex: 0);
-                    self.tableView.reloadData();    //table view is present in the super class
-                }
-            })
-        }
+        self.refresh();
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,8 +48,30 @@ class TweetTableTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            textField.resignFirstResponder();
+            self.searchText = textField.text;
+        }
+        return true;
+    }
 
     // MARK: - Table view data source
+    
+    func refresh(){
+        var request:TwitterRequest = TwitterRequest(search: searchText!, count: 100);
+        // NOTE the different types of closure notations used below
+        request.fetchTweets { (newTweets) -> Void in
+            // Because self.tableView.reloadData() needs to be executed on the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if newTweets.count > 0 {
+                    self.tweets.insert(newTweets, atIndex: 0);
+                    self.tableView.reloadData();    //table view is present in the super class
+                }
+            })
+        }
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
