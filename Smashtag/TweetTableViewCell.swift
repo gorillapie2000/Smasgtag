@@ -10,15 +10,31 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var tweet:Tweet? {
+        didSet{
+            updateUI();
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    @IBOutlet weak var tweetProfileImageView: UIImageView!
+    @IBOutlet weak var tweetScreenNameLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
+    
+    func updateUI(){
+        tweetTextLabel?.attributedText = nil;
+        tweetScreenNameLabel.attributedText = nil;
+        tweetProfileImageView?.image = nil;
+        if let tweet = self.tweet{
+            tweetTextLabel?.text = tweet.text;
+            tweetScreenNameLabel?.text = "\(tweet.user)";
+        }
+        
+        if let profileImageUrl =  tweet?.user.profileImageURL{
+            if let imageData = NSData(contentsOfURL: profileImageUrl){
+                // blocks main thread
+                tweetProfileImageView.image = UIImage(data: imageData)
+            }
+        }
     }
-
 }
