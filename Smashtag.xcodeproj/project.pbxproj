@@ -17,6 +17,7 @@
 		3FDF0CB51AB6A0EB00790680 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF0CB11AB6A0EB00790680 /* Tweet.swift */; };
 		3FDF0CB61AB6A0EB00790680 /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF0CB21AB6A0EB00790680 /* TwitterRequest.swift */; };
 		3FDF0CB71AB6A0EB00790680 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF0CB31AB6A0EB00790680 /* User.swift */; };
+		3FDF0CF61AB807FE00790680 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF0CF51AB807FE00790680 /* TweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3FDF0CB11AB6A0EB00790680 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		3FDF0CB21AB6A0EB00790680 /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
 		3FDF0CB31AB6A0EB00790680 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3FDF0CF51AB807FE00790680 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDF0C8E1AB69E0500790680 /* Main.storyboard */,
+				3FDF0CF51AB807FE00790680 /* TweetTableViewCell.swift */,
 				3FDF0CAA1AB69E9C00790680 /* TweetTableTableViewController.swift */,
 				3FDF0CAF1AB6A0EB00790680 /* Twitter */,
 				3FDF0C881AB69E0500790680 /* Supporting Files */,
@@ -238,6 +241,7 @@
 				3FDF0C8B1AB69E0500790680 /* AppDelegate.swift in Sources */,
 				3FDF0CB41AB6A0EB00790680 /* MediaItem.swift in Sources */,
 				3FDF0CB51AB6A0EB00790680 /* Tweet.swift in Sources */,
+				3FDF0CF61AB807FE00790680 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +435,7 @@
 				3FDF0CA61AB69E0500790680 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FDF0CA71AB69E0500790680 /* Build configuration list for PBXNativeTarget "SmashtagTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +444,7 @@
 				3FDF0CA91AB69E0500790680 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

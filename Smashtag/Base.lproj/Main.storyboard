@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Zq-iu-miP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tweet Table Table View Controller-->
         <scene sceneID="cye-kO-6oQ">
             <objects>
                 <tableViewController id="3Qz-VD-xTK" customClass="TweetTableTableViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VDP-2c-w32">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" sectionHeaderHeight="22" sectionFooterHeight="22" id="VDP-2c-w32">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -19,24 +20,42 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet" textLabel="No8-0Z-cGp" detailTextLabel="XWR-hM-bKZ" style="IBUITableViewCellStyleSubtitle" id="pOu-c6-szc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet" rowHeight="142" id="pOu-c6-szc" customClass="TweetTableViewCell" customModule="Smashtag" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pOu-c6-szc" id="IHg-AT-W2i">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="No8-0Z-cGp">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elp-e8-WX6">
+                                            <rect key="frame" x="64" y="8" width="528" height="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XWR-hM-bKZ">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vC6-eb-uo9">
+                                            <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="4SP-0K-xLa"/>
+                                                <constraint firstAttribute="width" constant="48" id="XDt-oj-TZY"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efu-yS-8nL">
+                                            <rect key="frame" x="64" y="43" width="528" height="92"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="efu-yS-8nL" secondAttribute="bottom" constant="-0.5" id="1Xb-Dz-laP"/>
+                                        <constraint firstItem="vC6-eb-uo9" firstAttribute="leading" secondItem="IHg-AT-W2i" secondAttribute="leadingMargin" id="3Vl-zK-iuX"/>
+                                        <constraint firstItem="elp-e8-WX6" firstAttribute="leading" secondItem="vC6-eb-uo9" secondAttribute="trailing" constant="8" id="4gT-36-r6W"/>
+                                        <constraint firstItem="efu-yS-8nL" firstAttribute="top" secondItem="elp-e8-WX6" secondAttribute="bottom" constant="15" id="ChB-ip-aod"/>
+                                        <constraint firstItem="vC6-eb-uo9" firstAttribute="top" secondItem="IHg-AT-W2i" secondAttribute="topMargin" id="K6o-nr-vm3"/>
+                                        <constraint firstItem="elp-e8-WX6" firstAttribute="trailing" secondItem="IHg-AT-W2i" secondAttribute="trailingMargin" id="Pe0-vR-Fo6"/>
+                                        <constraint firstItem="efu-yS-8nL" firstAttribute="leading" secondItem="elp-e8-WX6" secondAttribute="leading" id="aSc-xz-bzP"/>
+                                        <constraint firstItem="efu-yS-8nL" firstAttribute="trailing" secondItem="IHg-AT-W2i" secondAttribute="trailingMargin" id="qMe-XM-39A"/>
+                                        <constraint firstItem="elp-e8-WX6" firstAttribute="top" secondItem="IHg-AT-W2i" secondAttribute="topMargin" id="tBN-5Z-xoZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -52,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odr-ne-2Xt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="394"/>
+            <point key="canvasLocation" x="1108" y="394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A0b-TE-sP6">
